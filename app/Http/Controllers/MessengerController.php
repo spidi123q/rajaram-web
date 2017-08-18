@@ -11,7 +11,7 @@ class MessengerController extends Controller
             echo $request->get('hub_challenge');
         }
         else{
-            echo 'invalid access';
+            echo 'Error : invalid access';
         }
     }
 }
