@@ -18,6 +18,6 @@ class MessengerController extends Controller
 
     function setClientUrl(Request $request){
         session(['CLIENT_URL' => $request->get('url')]);
-        return session('CLIENT_URL');
+        return ['url' => session('CLIENT_URL')];
     }
 }
