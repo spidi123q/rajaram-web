@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ClientRobo;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -18,16 +19,18 @@ class MessengerController extends Controller
     }
 
     function setClientUrl(Request $request){
-        session(['CLIENT_URL' => $request->get('url')]);
-        return ['url' => session('CLIENT_URL')];
+
+        $t = ClientRobo::all();
+        return $t;
     }
 
     function onMessage(Request $request){
-
+/*
         $client = new Client();
         $response = $client->request('POST', session('CLIENT_URL').'/messenger', [
             'json' => json_encode($request->all())
         ]);
-        return $response->getBody();
+*/
+        return session('CLIENT_URL');
     }
 }
