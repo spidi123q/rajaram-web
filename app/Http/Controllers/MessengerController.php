@@ -20,17 +20,19 @@ class MessengerController extends Controller
 
     function setClientUrl(Request $request){
 
-        $t = ClientRobo::all();
-        return $t;
+        $clientRobo = ClientRobo::find(1);
+        $clientRobo->url = $request->get('url');
+        $clientRobo->save();
+        return ['url' => $request->get('url')];
     }
 
     function onMessage(Request $request){
-/*
+
+        $clientRobo = ClientRobo::find(1);
         $client = new Client();
-        $response = $client->request('POST', session('CLIENT_URL').'/messenger', [
+        $response = $client->request('POST', $clientRobo->url .'/messenger', [
             'json' => json_encode($request->all())
         ]);
-*/
-        return session('CLIENT_URL');
+        return $response->getBody();
     }
 }
