@@ -17,3 +17,5 @@ env_variables:
   DB_DATABASE: rajaram_db
   DB_USERNAME: root
   DB_PASSWORD: fuckingrobo#123
+  DB_CONNECTION: mysql
+  DB_PORT: 3306
