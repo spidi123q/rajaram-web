@@ -12,4 +12,9 @@ class FileController extends Controller
         $path = Storage::putFile('public',$request->file('upload_file'));
         return $path;
     }
+
+    function getFile(Request $request){
+        $path = $request->get('filename');
+        return response()->download($path);
+    }
 }
