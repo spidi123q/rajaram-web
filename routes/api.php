@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/messenger','MessengerController@onMessage');
 Route::get('/setClientUrl','MessengerController@setClientUrl');
+Route::post('/sendReply','MessengerController@sendReply');
+Route::post('/fileUpload','FileController@fileUpload');
