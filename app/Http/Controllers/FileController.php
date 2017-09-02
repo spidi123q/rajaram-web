@@ -17,4 +17,10 @@ class FileController extends Controller
         $path = $request->get('filename');
         return response()->download($path);
     }
+
+    function saveUrl(Request $request){
+        Storage::put('url.txt', $request->get('url'), 'private');
+        $contents = Storage::get('url.txt');
+        return ['url' => $contents];
+    }
 }

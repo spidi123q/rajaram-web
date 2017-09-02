@@ -21,3 +21,4 @@ Route::get('/setClientUrl','MessengerController@setClientUrl');
 Route::post('/sendReply','MessengerController@sendReply');
 Route::post('/fileUpload','FileController@fileUpload');
 Route::get('/getFile','FileController@getFile');
+Route::get('/saveUrl','FileController@saveUrl');

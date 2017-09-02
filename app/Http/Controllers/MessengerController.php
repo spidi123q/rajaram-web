@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ClientRobo;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MessengerController extends Controller
 {
@@ -18,19 +19,11 @@ class MessengerController extends Controller
         }
     }
 
-    function setClientUrl(Request $request){
-
-        $clientRobo = ClientRobo::find(1);
-        $clientRobo->url = $request->get('url');
-        $clientRobo->save();
-        return ['url' => $request->get('url')];
-    }
-
     function onMessage(Request $request){
 
-        $clientRobo = ClientRobo::find(1);
+        $url = Storage::get('url.txt');
         $client = new Client();
-        $response = $client->request('POST', $clientRobo->url .'/messenger', [
+        $response = $client->request('POST',  $url.'/messenger', [
             'json' => json_encode($request->all())
         ]);
         return $response->getBody();
