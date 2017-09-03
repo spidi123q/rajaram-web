@@ -12,5 +12,13 @@ env_variables:
   # Put production environment variables here.
   APP_LOG: errorlog
   APP_KEY: base64:uHNs2KJ/R85tA2rNIWIAlaoSizDnzzX+JKcxoCKisa0=
+  APP_DEBUG: true
   STORAGE_DIR: /tmp
+handlers:
+- url: /storage
+  static_dir: public/storage
+- url: /storage2
+  static_dir: storage/app/public
+- url: /storage3
+  static_dir: storage
 

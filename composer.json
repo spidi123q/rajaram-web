@@ -46,8 +46,8 @@
         ],
         "post-deploy-cmd": [
             "chmod -R 755 bootstrap\/cache",
-            "php artisan cache:clear",
-            "php artisan storage:link"
+            "chmod -R 755 public",
+            "php artisan cache:clear"
         ]
     },
     "config": {

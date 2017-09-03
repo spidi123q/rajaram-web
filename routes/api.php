@@ -22,3 +22,4 @@ Route::post('/sendReply','MessengerController@sendReply');
 Route::post('/fileUpload','FileController@fileUpload');
 Route::get('/getFile','FileController@getFile');
 Route::get('/saveUrl','FileController@saveUrl');
+Route::get('/getCWD','FileController@getCWD');
