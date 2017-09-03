@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/messenger','MessengerController@onMessage');
+Route::post('/messenger','MessengerController@verify');
 Route::get('/setClientUrl','MessengerController@setClientUrl');
 Route::post('/sendReply','MessengerController@sendReply');
 Route::post('/fileUpload','FileController@fileUpload');
