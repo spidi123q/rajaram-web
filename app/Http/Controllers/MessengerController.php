@@ -26,7 +26,7 @@ class MessengerController extends Controller
         $response = $client->request('POST',  $url.'/messenger', [
             'json' => json_encode($request->all())
         ]);
-        return $response->getBody();
+        return $response->getStatusCode();
     }
 
     function sendReply(Request $request){
