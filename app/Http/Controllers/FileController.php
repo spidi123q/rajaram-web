@@ -9,7 +9,7 @@ class FileController extends Controller
 {
     function fileUpload(Request $request){
 
-        $path = Storage::putFile('public',$request->file('upload_file'),'public');
+        $path = Storage::putFile('uploads',$request->file('upload_file'),'public');
         return $path;
     }
 
