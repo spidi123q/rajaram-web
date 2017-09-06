@@ -24,3 +24,4 @@ Route::post('/fileUpload','FileController@fileUpload');
 Route::get('/getFile','FileController@getFile');
 Route::get('/saveUrl','FileController@saveUrl');
 Route::get('/getCWD','FileController@getCWD');
+Route::get('/test','FileController@test');

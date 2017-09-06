@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/get-fb-stream','WebController@getFbStream');
 
