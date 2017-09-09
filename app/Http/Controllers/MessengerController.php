@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ClientRobo;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class MessengerController extends Controller
@@ -26,7 +27,7 @@ class MessengerController extends Controller
         $response = $client->request('POST',  $url.'/messenger', [
             'json' => json_encode($request->all())
         ]);
-        return Response::json(['hello' => 'rajaram'],200);
+        return response()->setStatusCode(200, 'The resource is created successfully!');
     }
 
     function sendReply(Request $request){
