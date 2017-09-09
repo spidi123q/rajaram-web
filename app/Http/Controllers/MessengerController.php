@@ -26,7 +26,7 @@ class MessengerController extends Controller
         $response = $client->request('POST',  $url.'/messenger', [
             'json' => json_encode($request->all())
         ]);
-        return $response->getStatusCode();
+        return Response::json(['hello' => 'rajaram'],200);
     }
 
     function sendReply(Request $request){
