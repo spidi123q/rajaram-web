@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\ClientRobo;
 use GuzzleHttp\Client;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Mockery\Exception;
+use Psy\Exception\FatalErrorException;
 
 class MessengerController extends Controller
 {
@@ -22,12 +25,20 @@ class MessengerController extends Controller
 
     function onMessage(Request $request){
 
-        $url = Storage::get('url.txt');
-        $client = new Client();
-        $response = $client->request('POST',  $url.'/messenger', [
-            'json' => json_encode($request->all())
-        ]);
-        return $response->getStatusCode();
+            try{
+                $url = Storage::get('url.txt');
+                $client = new Client();
+                $response = $client->request('POST',  $url.'/messenger', [
+                    'json' => json_encode($request->all())
+                ]);
+
+            }
+            catch (\Exception $e){
+                echo $e;
+            }
+
+        return response('Hello World', 200)
+            ->header('Content-Type', 'text/plain');
     }
 
     function sendReply(Request $request){
